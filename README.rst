@@ -1,5 +1,7 @@
 Unofficial Pushed.co API wrapper
 ================================
+.. image:: https://img.shields.io/pypi/v/pushed.svg
+    :target: https://pypi.python.org/pypi/pushed
 
 Overview
 ---------
