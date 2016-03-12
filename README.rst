@@ -18,8 +18,7 @@ Currently only the push functionality and some of the OAuth2 is implemented
 here.
 
 Basic usage
-.. code-block:: python
-    
+
     import pushed
 
     APP_KEY = 'MY_PUSHED_APP_KEY'
@@ -38,18 +37,18 @@ Basic usage
     # Push message to a user by Pushed ID
     shipment = p.push_pushed_id('test Pushed ID push', PUSHED_ID)
 
-Pushing to a user requires an OAuth access token. You must swap a temporary
+Pushing to a user requires an OAuth2 access token. You must swap a temporary
 code for this access token using the Pushed API. These temporary codes arrive
 by webhook, when a subscriber follows your authorization link and agrees to the
 access.
 
 To generate an authorization link to share with your users
-... code-block:: python
+
     p = pushed.Pushed(APP_KEY, APP_SECRET)
     uri = p.authorization_link('https://example.org/my-webhook-handler')
 
 Using a code to get an access token, then sending a message to the user
-... code-block:: python
+
     p = pushed.Pushed(APP_KEY, APP_SECRET)
     access_token = p.access_token(temporary_code)
     shipment = p.push_user('test user push', access_token)
@@ -63,7 +62,5 @@ Installation
 
 Using pip ::
 
-.. code-block:: bash
-    
     pip install pushed
 
