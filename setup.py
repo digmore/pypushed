@@ -12,7 +12,7 @@ setup(
     url="https://github.com/digmore/pypushedapi/",
     license="MIT",
     description="Unofficial Pushed.co API wrapper",
-    long_description=open("README.txt").read(),
+    long_description=open("README.rst").read(),
     keywords="pushed pushed.co mobile apns ios apple android",
     packages=find_packages(exclude=['tests']),
     install_requires=[

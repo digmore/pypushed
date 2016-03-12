@@ -14,8 +14,8 @@ and the like.
 Usage
 -----
 
-Currently only the push functionality and some of the OAuth is implemented
-here. 
+Currently only the push functionality and some of the OAuth2 is implemented
+here.
 
 Basic usage
 .. code-block:: python
@@ -27,16 +27,16 @@ Basic usage
     CHANNEL_ALIAS = 'MY_CHANNEL_ALIAS'
     PUSHED_ID = 'PUSHED_ID_FOR_SUBSCRIBER'
 
-    pushed = Pushed(APP_KEY, APP_SECRET)
+    p = pushed.Pushed(APP_KEY, APP_SECRET)
 
     # Push message to your application's subscribers
-    shipment = pushed.push_app('test app push')
+    shipment = p.push_app('test app push')
 
     # Push message to your channel's subscribers
-    shipment = pushed.push_channel('test channel push', CHANNEL_ALIAS)
+    shipment = p.push_channel('test channel push', CHANNEL_ALIAS)
 
     # Push message to a user by Pushed ID
-    shipment = pushed.push_pushed_id('test Pushed ID push', PUSHED_ID)
+    shipment = p.push_pushed_id('test Pushed ID push', PUSHED_ID)
 
 Pushing to a user requires an OAuth access token. You must swap a temporary
 code for this access token using the Pushed API. These temporary codes arrive
@@ -45,14 +45,14 @@ access.
 
 To generate an authorization link to share with your users
 ... code-block:: python
-    pushed = Pushed(APP_KEY, APP_SECRET)
-    uri = pushed.authorization_link('https://example.org/my-webhook-handler')
+    p = pushed.Pushed(APP_KEY, APP_SECRET)
+    uri = p.authorization_link('https://example.org/my-webhook-handler')
 
 Using a code to get an access token, then sending a message to the user
 ... code-block:: python
-    pushed = Pushed(APP_KEY, APP_SECRET)
-    access_token = pushed.access_token(temporary_code)
-    shipment = pushed.push_user('test user push', access_token)
+    p = pushed.Pushed(APP_KEY, APP_SECRET)
+    access_token = p.access_token(temporary_code)
+    shipment = p.push_user('test user push', access_token)
 
 All 4 push methods return an alphanumeric Shipment ID which you can check
 against your Pushed.co control panel. If the Pushed API returns a JSON failure
@@ -66,11 +66,4 @@ Using pip ::
 .. code-block:: bash
     
     pip install pushed
-
-Using easy install ::
-
-.. code-block:: bash
-    
-    easy_install pushed
-
 
