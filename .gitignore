@@ -3,3 +3,5 @@ dist*
 env
 *.egg-info
 *.swp
+*.py[cod]
+
