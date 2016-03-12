@@ -18,7 +18,7 @@ Currently only the push functionality and some of the OAuth2 is implemented
 here.
 
 Basic usage
-
+```python
     import pushed
 
     APP_KEY = 'MY_PUSHED_APP_KEY'
@@ -36,6 +36,7 @@ Basic usage
 
     # Push message to a user by Pushed ID
     shipment = p.push_pushed_id('test Pushed ID push', PUSHED_ID)
+```
 
 Pushing to a user requires an OAuth2 access token. You must swap a temporary
 code for this access token using the Pushed API. These temporary codes arrive
