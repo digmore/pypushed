@@ -1,1 +1,1 @@
-from pushed import Pushed, PushedAPIError
+from .pushed import Pushed, PushedAPIError
