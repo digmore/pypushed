@@ -43,7 +43,6 @@ by webhook, when a subscriber follows your authorization link and agrees to the
 access.
 
 To generate an authorization link to share with your users
-
 ::
     p = pushed.Pushed(APP_KEY, APP_SECRET)
     uri = p.authorization_link('https://example.org/my-webhook-handler')
@@ -62,7 +61,6 @@ Installation
 ------------
 
 Using pip ::
-
 ::
     pip install pushed
 
