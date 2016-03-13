@@ -6,14 +6,14 @@ from codecs import open
 
 setup(
     name="pushed",
-    version="0.1.1",
+    version="0.1.2",
     author="Duncan Gilmore",
     author_email="pypi@digmore.tech",
     url="https://github.com/digmore/pypushedapi/",
     license="MIT",
     description="Unofficial Pushed.co API wrapper",
     long_description=open("README.rst").read(),
-    keywords="pushed pushed.co mobile apns ios apple android",
+    keywords=["pushed", "pushed.co", "mobile", "apns", "ios", "apple", "android"],
     packages=find_packages(exclude=['tests']),
     install_requires=[
         "requests",
@@ -31,6 +31,7 @@ setup(
     ],
     test_suite='tests',
     tests_require=[
-        "mock"
+        "mock",
+        "nose"
     ]
 )
