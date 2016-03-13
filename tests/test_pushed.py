@@ -7,10 +7,9 @@ test_pushed
 Tests for 'pushed' module
 """
 
+import mock
 import unittest
 import pushed
-
-from mock import mock, patch
 
 PUSHSUCCESS = {
     'response': {
