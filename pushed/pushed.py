@@ -8,7 +8,7 @@ API_VERSION = '1'
 PUSH = 'push'
 OAUTH = 'oauth'
 ACCESS_TOKEN = 'oauth/access_token'
-USER_AGENT = 'python-pushed/0.1.2'
+USER_AGENT = 'python-pushed/0.1.3'
 
 
 class Pushed(object):

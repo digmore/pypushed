@@ -1,18 +1,21 @@
+import io
 from setuptools import setup, find_packages
-# To use a consistent encoding
-from codecs import open
 
+import pushed
+
+with io.open('README.rst', encoding='utf-8') as readme:
+    long_description = readme.read()
 
 
 setup(
     name="pushed",
-    version="0.1.2",
+    version="0.1.3",
     author="Duncan Gilmore",
     author_email="pypi@digmore.tech",
     url="https://github.com/digmore/pypushedapi/",
     license="MIT",
     description="Unofficial Pushed.co API wrapper",
-    long_description=open("README.rst").read(),
+    long_description=long_description,
     keywords=["pushed", "pushed.co", "mobile", "apns", "ios", "apple", "android"],
     packages=find_packages(exclude=['tests']),
     install_requires=[
