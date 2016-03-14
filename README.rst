@@ -1,7 +1,13 @@
+================================
 Unofficial Pushed.co API wrapper
 ================================
+
+.. image:: https://travis-ci.org/digmore/pypushed.svg?branch=master
+    :target: https://travis-ci.org/digmore/pypushed
+
 .. image:: https://img.shields.io/pypi/v/pushed.svg
     :target: https://pypi.python.org/pypi/pushed
+
 
 Overview
 ---------
@@ -19,8 +25,8 @@ Usage
 Currently only the push functionality and some of the OAuth2 is implemented
 here.
 
-Basic usage
-::
+Basic usage::
+
     import pushed
 
     APP_KEY = 'MY_PUSHED_APP_KEY'
@@ -44,13 +50,13 @@ code for this access token using the Pushed API. These temporary codes arrive
 by webhook, when a subscriber follows your authorization link and agrees to the
 access.
 
-To generate an authorization link to share with your users
-::
+To generate an authorization link to share with your users::
+
     p = pushed.Pushed(APP_KEY, APP_SECRET)
     uri = p.authorization_link('https://example.org/my-webhook-handler')
 
-Using a code to get an access token, then sending a message to the user
-::
+Using a code to get an access token, then sending a message to the user::
+
     p = pushed.Pushed(APP_KEY, APP_SECRET)
     access_token = p.access_token(temporary_code)
     shipment = p.push_user('test user push', access_token)
@@ -63,6 +69,6 @@ Installation
 ------------
 
 Using pip ::
-::
+
     pip install pushed
 
