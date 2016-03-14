@@ -12,7 +12,7 @@ setup(
     version="0.1.3",
     author="Duncan Gilmore",
     author_email="pypi@digmore.tech",
-    url="https://github.com/digmore/pypushedapi/",
+    url="https://github.com/digmore/pypushed/",
     license="MIT",
     description="Unofficial Pushed.co API wrapper",
     long_description=long_description,
