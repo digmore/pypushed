@@ -45,6 +45,9 @@ Basic usage::
     # Push message to a user by Pushed ID
     shipment = p.push_pushed_id('test Pushed ID push', PUSHED_ID)
 
+    # Push URL enriched message to your application's subscribers
+    shipment =  p.push_app('test app push', content_url='http://example.com')
+
 Pushing to a user requires an OAuth2 access token. You must swap a temporary
 code for this access token using the Pushed API. These temporary codes arrive
 by webhook, when a subscriber follows your authorization link and agrees to the
@@ -61,9 +64,12 @@ Using a code to get an access token, then sending a message to the user::
     access_token = p.access_token(temporary_code)
     shipment = p.push_user('test user push', access_token)
 
-All 4 push methods return an alphanumeric Shipment ID which you can check
+All four push methods return an alphanumeric Shipment ID which you can check
 against your Pushed.co control panel. If the Pushed API returns a JSON failure
-message then a PushedAPIError will be raised using its type and message fields.
+message then a `PushedAPIError` will be raised using its type and message fields.
+
+The `content_url` parameter is optional and is supported by all push types. It
+allows you to enrich your messages with a hyperlink if desired.
 
 Installation
 ------------
