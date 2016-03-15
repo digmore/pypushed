@@ -1,29 +1,32 @@
 language: python
 sudo: false
 python:
-  - '2.6'
-  - '2.7'
-  - '3.2'
-  - '3.3'
-  - '3.4'
-  - '3.5'
+ - '2.6'
+ - '2.7'
+ - '3.2'
+ - '3.3'
+ - '3.4'
+ - '3.5'
 install:
-  - pip install -r requirements.txt
-  - pip install -r requirements-test.txt
-  - pip install .
+# Coveralls 4.0 doesn't support Python 3.2
+# Thanks https://github.com/sixohsix/
+ - if [ "$TRAVIS_PYTHON_VERSION" == "3.2" ]; then pip install coverage==3.7.1; fi
+ - pip install -r requirements.txt
+ - pip install -r requirements-test.txt
+ - pip install .
 script: nosetests --with-coverage --cover-package=pushed
 after_success:
-  - coveralls
-  - pip install pep8 pyflakes
-  - pep8 pushed/*.py
-  - pyflakes pushed/*.py
-  - pep8 tests/*.py
-  - pyflakes tests/*.py
+ - coveralls
+ - pip install pep8 pyflakes
+ - pep8 pushed/*.py
+ - pyflakes pushed/*.py
+ - pep8 tests/*.py
+ - pyflakes tests/*.py
 deploy:
-  provider: pypi
-  user: digmore
-  password:
-    secure: odyh2VZ0adzCyt16q8qRGiw2V6ILf0NN01bnpeG6fx+85kflFMI+2hfvq1VE0gJ/dWtuyOe6Y1syDHBsK3ZZvGJ+TOk+fmnnEACpp0eXvyK9cpUqNhPiEbW7w6qRoWbDvvR1RWf+1ej4Tuh+P8mxSIomW2URNqK5yFrQvMFM8ULncl74ni29fwNvQiZTdIOn5ChePvVEprNdOmFF+e+VLOe1PcNjwZd0mV//UVkD6JrnjpFPrh9YVnUlL6J6JFRTEBcRlhglIpGiy8KQL8P9lltC7ijqo76yl7DlX3phUUNgTNLoxlCkTsD2UiG58fHcQlD1btuzL997yuB3NT4hQa7YWfDuPbTSTLx3XABMZIsoeEO9OLBPXow0Mz/197U9aueTh/r8TxXnhEmjRXLLxzT3ckLlg88zqRCQvvcdurj+JbSrkVqcSRbyAYPOFJDAWd3v98KT++dQKTic8kNQlCE5Fkaxv5Em1XhDmkSDRBUdU1baC3r1VJ6WUo0bd19aMFFwNdKFi6NPQ7h6F7CDKG+BKrxm90BgBj97QVHRsnklfWs1ehXnLZVhybsKL2Cb18+6ZjFsQ8ZoTHG6Q7d3ZGryGScYY39pn7au0wrmIt7cb8R4XzPRQnlCxwIvO4M0NS/ZFo70YQUWHAiF2r1H62CuSJ2tehnhK6hweSfH4oU=
-  on:
-    tags: true
-  distributions: "sdist bdist_wheel"
+ provider: pypi
+ user: digmore
+ password:
+   secure: odyh2VZ0adzCyt16q8qRGiw2V6ILf0NN01bnpeG6fx+85kflFMI+2hfvq1VE0gJ/dWtuyOe6Y1syDHBsK3ZZvGJ+TOk+fmnnEACpp0eXvyK9cpUqNhPiEbW7w6qRoWbDvvR1RWf+1ej4Tuh+P8mxSIomW2URNqK5yFrQvMFM8ULncl74ni29fwNvQiZTdIOn5ChePvVEprNdOmFF+e+VLOe1PcNjwZd0mV//UVkD6JrnjpFPrh9YVnUlL6J6JFRTEBcRlhglIpGiy8KQL8P9lltC7ijqo76yl7DlX3phUUNgTNLoxlCkTsD2UiG58fHcQlD1btuzL997yuB3NT4hQa7YWfDuPbTSTLx3XABMZIsoeEO9OLBPXow0Mz/197U9aueTh/r8TxXnhEmjRXLLxzT3ckLlg88zqRCQvvcdurj+JbSrkVqcSRbyAYPOFJDAWd3v98KT++dQKTic8kNQlCE5Fkaxv5Em1XhDmkSDRBUdU1baC3r1VJ6WUo0bd19aMFFwNdKFi6NPQ7h6F7CDKG+BKrxm90BgBj97QVHRsnklfWs1ehXnLZVhybsKL2Cb18+6ZjFsQ8ZoTHG6Q7d3ZGryGScYY39pn7au0wrmIt7cb8R4XzPRQnlCxwIvO4M0NS/ZFo70YQUWHAiF2r1H62CuSJ2tehnhK6hweSfH4oU=
+ on:
+   tags: true
+ distributions: "sdist bdist_wheel"
