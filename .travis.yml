@@ -1,16 +1,24 @@
 language: python
 sudo: false
 python:
-- '2.6'
-- '2.7'
-- '3.2'
-- '3.3'
-- '3.4'
+  - '2.6'
+  - '2.7'
+  - '3.2'
+  - '3.3'
+  - '3.4'
+  - '3.5'
 install:
-- pip install -r requirements.txt
-- pip install -r requirements-test.txt
-- pip install .
-script: nosetests
+  - pip install -r requirements.txt
+  - pip install -r requirements-test.txt
+  - pip install .
+script: nosetests --with-coverage --cover-package=pushed
+after_success:
+  - coveralls
+  - pip install pep8 pyflakes
+  - pep8 pushed/*.py
+  - pyflakes pushed/*.py
+  - pep8 tests/*.py
+  - pyflakes tests/*.py
 deploy:
   provider: pypi
   user: digmore
