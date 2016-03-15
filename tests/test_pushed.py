@@ -121,7 +121,7 @@ class TestPushed(unittest.TestCase):
     def test_push_channel_url(self, m_request):
         shipment = self.pushed.push_channel(
             'channel push',
-            'CHANNEL', 
+            'CHANNEL',
             content_url='http://example.com'
         )
         args, kwargs = m_request.call_args_list[0]
@@ -162,7 +162,7 @@ class TestPushed(unittest.TestCase):
             }
         )
         self.assertEqual(shipment, '01234ABCDE')
-		
+
     @mock.patch('pushed.Pushed._request', return_value=(True, PUSHSUCCESS))
     def test_push_pushedid(self, m_request):
         shipment = self.pushed.push_pushed_id('pushedid push', 'PUSHED_ID')
@@ -179,7 +179,7 @@ class TestPushed(unittest.TestCase):
     def test_push_pushedid_url(self, m_request):
         shipment = self.pushed.push_pushed_id(
             'pushedid push',
-            'PUSHED_ID', 
+            'PUSHED_ID',
             content_url='http://example.com'
         )
         args, kwargs = m_request.call_args_list[0]
@@ -192,11 +192,9 @@ class TestPushed(unittest.TestCase):
             }
         )
         self.assertEqual(shipment, '01234ABCDE')
-		
 
     def tearDown(self):
         pass
 
 if __name__ == "__main__":
     unittest.main()
-

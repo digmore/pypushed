@@ -23,7 +23,7 @@ class Pushed(object):
 
     def push_app(self, content, content_url=None):
         '''Push a notification to a Pushed application.
-        
+
         Param: content -> content of Pushed notification message
                content_url (optional) -> enrich message with URL
         Returns Shipment ID as string
@@ -146,6 +146,6 @@ class Pushed(object):
         uri = "/".join([BASE_URL, API_VERSION, OAUTH, args])
         return uri
 
+
 class PushedAPIError(Exception):
     '''Raise when an API request does not return a success status'''
-
