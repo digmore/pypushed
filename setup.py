@@ -9,7 +9,7 @@ with io.open('README.rst', encoding='utf-8') as readme:
 
 setup(
     name="pushed",
-    version="0.1.3",
+    version="0.1.4",
     author="Duncan Gilmore",
     author_email="pypi@digmore.tech",
     url="https://github.com/digmore/pypushed/",

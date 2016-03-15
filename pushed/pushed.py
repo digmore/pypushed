@@ -8,7 +8,7 @@ API_VERSION = '1'
 PUSH = 'push'
 OAUTH = 'oauth'
 ACCESS_TOKEN = 'oauth/access_token'
-USER_AGENT = 'python-pushed/0.1.3'
+USER_AGENT = 'python-pushed/0.1.4'
 
 
 class Pushed(object):
@@ -25,6 +25,7 @@ class Pushed(object):
         '''Push a notification to a Pushed application.
         
         Param: content -> content of Pushed notification message
+               content_url (optional) -> enrich message with URL
         Returns Shipment ID as string
         '''
         parameters = {
@@ -38,6 +39,7 @@ class Pushed(object):
 
         Param: content -> content of Pushed notification message
                channel -> string identifying a Pushed channel
+               content_url (optional) -> enrich message with URL
         Returns Shipment ID as string
         '''
         parameters = {
@@ -52,6 +54,7 @@ class Pushed(object):
 
         Param: content -> content of Pushed notification message
                access_token -> OAuth access token
+               content_url (optional) -> enrich message with URL
         Returns Shipment ID as string
         '''
         parameters = {
@@ -66,6 +69,7 @@ class Pushed(object):
 
         Param: content -> content of Pushed notification message
                pushed_id -> user's pushed ID
+               content_url (optional) -> enrich message with URL
         Returns Shipment ID as string
         '''
         parameters = {
