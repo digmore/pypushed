@@ -18,7 +18,6 @@ install:
 script: nosetests --with-coverage --cover-package=pushed
 after_success:
  - pip install coveralls pep8 pyflakes
- - coveralls debug
  - coveralls
  - pep8 pushed/*.py
  - pyflakes pushed/*.py
