@@ -11,13 +11,15 @@ install:
 # Coveralls 4.0 doesn't support Python 3.2
 # Thanks https://github.com/sixohsix/
  - if [ "$TRAVIS_PYTHON_VERSION" == "3.2" ]; then pip install coverage==3.7.1; fi
+ - if [ "$TRAVIS_PYTHON_VERSION" != "3.2" ]; then pip install coverage; fi
  - pip install -r requirements.txt
  - pip install -r requirements-test.txt
  - pip install .
 script: nosetests --with-coverage --cover-package=pushed
 after_success:
+ - pip install coveralls pep8 pyflakes
+ - coveralls debug
  - coveralls
- - pip install pep8 pyflakes
  - pep8 pushed/*.py
  - pyflakes pushed/*.py
  - pep8 tests/*.py
