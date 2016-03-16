@@ -5,9 +5,8 @@ Unofficial Pushed.co API wrapper
 .. image:: https://travis-ci.org/digmore/pypushed.svg?branch=master
     :target: https://travis-ci.org/digmore/pypushed
 
-.. image::
-https://coveralls.io/repos/github/digmore/pypushed/badge.svg?branch=master
-:target: https://coveralls.io/github/digmore/pypushed?branch=master
+.. image:: https://coveralls.io/repos/github/digmore/pypushed/badge.svg?branch=master
+    :target: https://coveralls.io/github/digmore/pypushed?branch=master
 
 .. image:: https://img.shields.io/pypi/v/pushed.svg
     :target: https://pypi.python.org/pypi/pushed
